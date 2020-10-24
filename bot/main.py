@@ -26,7 +26,18 @@ def main():
     dp.add_handler(CommandHandler("forward", forward))
     dp.add_handler(MessageHandler(~Filters.command, thanks))
 
-    updater.start_polling()
+    # No webhook -- run in the debug mode
+    if config.webhook is None:
+        updater.start_polling()
+        updater.idle()
+        return
+
+    updater.start_webhook(
+        listen="0.0.0.0",
+        port=config.port,
+        url_path=config.token
+    )
+    updater.bot.set_webhook(config.webhook)
     updater.idle()
 
 

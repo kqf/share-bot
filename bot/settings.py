@@ -14,5 +14,11 @@ class Config:
         self.message_start = env.str("MESSAGE_START")
         self.message_help = env.str("MESSAGE_HELP")
 
+        self.port = env.int("PORT", 8443)
+
+        self.webhook = env.str("WEBHOOK_URL", None)
+        if self.webhook is not None:
+            self.webhook = f"{self.webhook}/{self.token}"
+
 
 config = Config()
