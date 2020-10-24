@@ -3,7 +3,7 @@ import logging
 
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
-from bot.commands import start, helpme, thanks
+from bot.commands import start, helpme, thanks, forward
 from bot.settings import config
 
 
@@ -22,6 +22,8 @@ def main():
 
     dp.add_handler(CommandHandler("start", start))
     dp.add_handler(CommandHandler("help", helpme))
+    dp.add_handler(CommandHandler("copyright", forward))
+    dp.add_handler(CommandHandler("forward", forward))
     dp.add_handler(MessageHandler(~Filters.command, thanks))
 
     updater.start_polling()
