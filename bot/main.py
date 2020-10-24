@@ -1,9 +1,10 @@
 import logging
 
-import bot.settings as settings
 
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+
 from bot.commands import start, helpme, echo
+from bot.settings import config
 
 
 # Enable logging
@@ -16,7 +17,7 @@ logger = logging.getLogger(__name__)
 
 
 def main():
-    updater = Updater(settings.token)
+    updater = Updater(config.token)
     dp = updater.dispatcher
 
     dp.add_handler(CommandHandler("start", start))
