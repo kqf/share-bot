@@ -1,14 +1,18 @@
 from environs import Env
-import pathlib
 
 
 class Config:
     def __init__(self):
         env = Env()
-        print(pathlib.Path(__file__).parent.absolute() / ".env")
         env.read_env()
+
         self.token = env("TOKEN")
-        # self.token ="text"
+        self.admin_ids = env.list("ADMIN_IDS")
+        self.thanks_stickers = env.list("THANKS_STICKERS")
+
+        self.message_thanks = env.str("MESSAGE_THANKS")
+        self.message_start = env.str("MESSAGE_START")
+        self.message_help = env.str("MESSAGE_HELP")
 
 
 config = Config()

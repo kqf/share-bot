@@ -1,11 +1,19 @@
+import random
+
+from bot.settings import config
+
 
 def start(update, context):
-    update.message.reply_text('Hi!')
+    update.message.reply_text(config.message_start)
 
 
 def helpme(update, context):
-    update.message.reply_text('Help!')
+    update.message.reply_text(config.message_help)
 
 
-def echo(update, context):
-    update.message.reply_text(update.message.text)
+def thanks(update, context):
+    for admin_id in config.admin_ids:
+        update.message.forward(admin_id)
+
+    update.message.reply_text(config.message_thanks)
+    update.message.reply_sticker(random.choice(config.thanks_stickers))
