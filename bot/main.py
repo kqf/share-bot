@@ -1,7 +1,7 @@
 import logging
 
 
-from telegram.ext import Application, CommandHandler, MessageHandler, Filters
+from telegram.ext import Application, CommandHandler, MessageHandler, filters
 
 from bot.commands import start, helpme, thanks, forward
 from bot.settings import config
@@ -21,7 +21,7 @@ def main():
     app.add_handler(CommandHandler("help", helpme))
     app.add_handler(CommandHandler("copyright", forward))
     app.add_handler(CommandHandler("forward", forward))
-    app.add_handler(MessageHandler(~Filters.command, thanks))
+    app.add_handler(MessageHandler(~filters.COMMAND, thanks))
 
     # No webhook -- run in the debug mode
     if config.webhook is None:
