@@ -1,4 +1,10 @@
 environs
 python-telegram-bot
+python-telegram-bot[webhooks]
 pre-commit
 .
+pre-commit
+pytest
+pytest-cov
+mypy
+isort
