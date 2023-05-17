@@ -1,3 +1,4 @@
 environs
 python-telegram-bot
+pre-commit
 .
