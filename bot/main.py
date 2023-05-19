@@ -29,7 +29,7 @@ def main():
         app.idle()
         return
 
-    app.run_polling(
+    app.run_webhook(
         listen="0.0.0.0",
         port=config.port,
         url_path=config.token,
