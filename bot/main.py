@@ -1,15 +1,14 @@
 import logging
 
-
 from telegram.ext import Application, CommandHandler, MessageHandler, filters
 
-from bot.commands import start, helpme, thanks, forward
+from bot.commands import forward, helpme, start, thanks
 from bot.settings import config
-
 
 # Enable logging
 logging.basicConfig(
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    level=logging.INFO,
 )
 
 logger = logging.getLogger(__name__)
