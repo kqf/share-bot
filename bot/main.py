@@ -26,7 +26,6 @@ def main():
     # No webhook -- run in the debug mode
     if config.webhook is None:
         app.run_polling()
-        app.idle()
         return
 
     app.run_webhook(
