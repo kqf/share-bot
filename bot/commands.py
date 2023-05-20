@@ -17,12 +17,12 @@ async def helpme(update, context):
 
 
 async def forward(update, context):
-    _forward_to_admins(update, context)
+    await _forward_to_admins(update, context)
     stem = await update.message.text[1:]
     await update.message.reply_text(f"Your next message will be {stem}ed :)")
 
 
 async def thanks(update, context):
-    _forward_to_admins(update, context)
+    await _forward_to_admins(update, context)
     await update.message.reply_text(config.message_thanks)
     await update.message.reply_sticker(random.choice(config.thanks_stickers))
